@@ -31,29 +31,9 @@ angular.module('contacts', ['ngRoute'])
       var id = $routeParams.id
       getService.getData().then(function (data) {
         $scope.data = data.data.filter(item => item.id === +id)[0]
+        $scope.data.firstName = $scope.data.name.split(" ")[0];
+        $scope.data.lastName = $scope.data.name.split(" ")[1];
         $log.log($scope.data)
       })
     }])
-//$('#search').keyup(function() {
-//	var searchField = $('#search').val();
-//	var myExp = new RegExp(searchField, "i");
-//	$.getJSON('data.json', function(data) {
-//		var output = '<ul class="searchresults">';
-//		$.each(data, function(key, val) {
-//			if (val.name.search(myExp) != -1) {
-//				output += '<li>';
-//				output += '<h4>'+ val.name +'</h4>';
-//				
-//				output += '<p>'+ val.email +'</p>';
-//				output += '<p>'+ val.phone +'</p>';
-//                output += '<p>'+ val.website +'</p>';
-//				
-//				
-//				output += '</li>';
-//			}
-//		});
-//		output += '</ul>';
-//		$('#update').html(output);
-//	}); //get JSON
-//});
 

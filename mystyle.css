@@ -2,6 +2,7 @@
 
 body {
 	background: #DAD7C7;
+    
 }
 
 #searcharea {
@@ -59,8 +60,96 @@ body {
 	margin-bottom: 10px;
 }
 
+#name {
+    color:indianred;
+    font-size:36px;
+}
+a:-webkit-any-link {
+    text-decoration: none;
+}
+/*card design*/
+.card {
+    width: 500px;
+    padding: 30px 0 112px 0;
+    margin: auto;
+    background-image: url(./img/card.png), radial-gradient(circle, #ffffff 0%, #c3c2c2 100%);
+    background-size: 102%;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    border: 2px solid #bbbcb7;
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-position-x: -2px;
+}
 
+.card .left {
+	width: 60%;
+	float: left;
+	text-align: center;
+}
+.card .right {
+	width: 40%;
+	float: left;
+     border-left: 2px solid #000;
+     padding-left: 10px;
+}
 
+.right p{
+	margin-bottom: 0;
+	margin-top: 5px;
+    margin-left:5px;
+	font-size: 12px;
+   
+}
+.business {
+	margin-bottom: 20px;
+}
+.info p {
+	margin: 0;
+}
+.info .caption {
+	font-weight: bold;
+}
 
+.card .name {
+    font-size: 35px;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.card .name span {
+	position: relative;
+}
+.card .name span:after,
+.card .name span:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  left: 0px;
+  transform: scaleY(-1);
+  transform-origin: bottom;
+}
 
-
+.card .name .first {
+  color: #d93a36;
+}
+.card .name .first:after {
+	content: attr(data-content);
+  	background: linear-gradient(to bottom, rgba(217, 58, 54, 0.0) 40%, rgba(216,58,54,0.4) 80%);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	bottom: 14px;
+    left: -4px;
+}
+.card .name .last:after {
+  content: attr(data-content);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 40%, rgba(0,0,0,0.4) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  bottom: 14px;
+}
+.card .company {
+	font-weight: bold;
+}

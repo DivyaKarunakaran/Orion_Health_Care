@@ -1,0 +1,175 @@
+//colors
+$color_tana_approx: #dad7c7;
+$color_twine_approx: #bf996b;
+$color_mexican_red_approx: #a61c1c;
+$color_celeste_approx: #ccc;
+$color_crail_approx: #bf5841;
+$chestnut_rose: indianred;
+$white: #ffffff;
+$color_pale_slate_approx: #c3c2c2;
+$color_cotton_seed_approx: #bbbcb7;
+$black_20: rgba(0, 0, 0, 0.2);
+$black_19: rgba(0, 0, 0, 0.19);
+$black: #000;
+$color_punch_approx: #d93a36;
+$color_punch_0_approx: rgba(217, 58, 54, 0.0);
+$color_valencia_40_approx: rgba(216,58,54,0.4);
+$black_0: rgba(0, 0, 0, 0.0);
+$black_40: rgba(0,0,0,0.4);
+
+//fonts
+$font_0: Arial;
+$font_1: Georgia;
+$font_2: Times New Roman;
+$font_3: Times;
+$font_4: serif;
+$font_5: Helvetica;
+$font_6: sans-serif;
+
+//urls
+$url_0: url(./img/card.png);
+
+//@extend-elements
+//original selectors
+//.card .name span:after, .card .name span:before
+%extend_1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 0;
+	transform: scaleY(-1);
+	transform-origin: bottom;
+}
+
+
+body {
+	background: $color_tana_approx;
+}
+#searcharea {
+	margin: 0 auto;
+	text-align: center;
+	background: $color_twine_approx;
+	padding: 10px;
+	width: 30%;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 10px 10px 0 0;
+	label {
+		font: bold 1.3em $font_0;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+		color: $color_mexican_red_approx;
+	}
+	p {
+		margin: 0;
+		line-height: 1em;
+		padding-bottom: 5px;
+	}
+	input {
+		width: 80%;
+		text-align: center;
+	}
+}
+#update {
+	font-family: $font_1, $font_2, $font_3, $font_4;
+	width: 70%;
+	margin: 0 auto;
+	border-top: 1px dotted $color_celeste_approx;
+	cursor: pointer;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	h4 {
+		margin: 0;
+		padding: 0;
+		font-size: 1em;
+		padding-bottom: 5px;
+		padding-top: 20px;
+		font-family: $font_0, $font_5, $font_6;
+		color: $color_crail_approx;
+		border-bottom: 1px dotted $color_celeste_approx;
+		margin-bottom: 10px;
+	}
+}
+#name {
+	color: $chestnut_rose;
+	font-size: 36px;
+}
+.card {
+	width: 500px;
+	padding: 30px 0 112px;
+	margin: auto;
+	background-image: $url_0, radial-gradient(circle, $white 0, $color_pale_slate_approx 100%);
+	background-size: 102%;
+	background-repeat: no-repeat;
+	background-position-y: 100%;
+	border: 2px solid $color_cotton_seed_approx;
+	display: flex;
+	box-shadow: 0 4px 8px 0 $black_20, 0 6px 20px 0 $black_19;
+	background-position-x: -2px;
+	.left {
+		width: 60%;
+		float: left;
+		text-align: center;
+	}
+	.right {
+		width: 40%;
+		float: left;
+		border-left: 2px solid $black;
+		padding-left: 10px;
+	}
+	.name {
+		font-size: 35px;
+		letter-spacing: -2px;
+		margin-bottom: 10px;
+		margin-top: 20px;
+		span {
+			position: relative;
+			&:after {
+				@extend %extend_1;
+			}
+			&:before {
+				@extend %extend_1;
+			}
+		}
+		.first {
+			color: $color_punch_approx;
+			&:after {
+				content: attr(data-content);
+				background: linear-gradient(to bottom, $color_punch_0_approx 40%, $color_valencia_40_approx 80%);
+				bottom: 14px;
+				left: -4px;
+			}
+		}
+		.last:after {
+			content: attr(data-content);
+			background: linear-gradient(to bottom, $black_0 40%, $black_40 80%);
+			bottom: 14px;
+		}
+	}
+	.company {
+		font-weight: bold;
+	}
+}
+.business {
+	margin-bottom: 20px;
+}
+.info {
+	p {
+		margin: 0;
+	}
+	.caption {
+		font-weight: bold;
+	}
+}
+a:-webkit-any-link {
+	text-decoration: none;
+}
+.right p {
+	margin-bottom: 0;
+	margin-top: 5px;
+	margin-left: 5px;
+	font-size: 12px;
+}

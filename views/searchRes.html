@@ -2,16 +2,14 @@
     <div id="searcharea">
         <label for="search">Search</label>
 
-        <input ng-model="searchQuery.name" type="search" name="search" id="search" placeholder="name " />
+        <input ng-model="searchQuery.name" type="search" name="search" id="search" placeholder="Name " />
     </div>
     <div id="update">
         <ul ng-if="data" class="searchresults">
-            <li ng-repeat="val in data | filter:searchQuery">
+            <li ng-repeat="val in data | filter:searchQuery | orderBy:'name'">
                 <a ng-href="#!/card/{{val.id}}">
                     <h4>{{val.name}}</h4>
-                    <p>{{val.email}}</p>
-                    <p>{{val.phone}}</p>
-                    <p>{{val.website}}</p>
+ 
                 </a>
             </li>
         </ul>
