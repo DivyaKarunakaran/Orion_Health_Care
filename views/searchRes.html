@@ -1,13 +1,17 @@
 <div>
     <div id="searcharea">
         <label for="search">Search</label>
-
+        // ng model binds the name property on the scope using "data" in the controller
         <input ng-model="searchQuery.name" type="search" name="search" id="search" placeholder="Name " />
     </div>
     <div id="update">
+        //ngif creates DOM based on the h4 expression
         <ul ng-if="data" class="searchresults">
+            //ng repeat read data from JSON file, render in oredrBy format and each creates its own scope
             <li ng-repeat="val in data | filter:searchQuery | orderBy:'name'">
+                //ng-href creates a url with the JSON "id" attribute
                 <a ng-href="#!/card/{{val.id}}">
+                    //Bind the username to the view page
                     <h4>{{val.name}}</h4>
  
                 </a>
